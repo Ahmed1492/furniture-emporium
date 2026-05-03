@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Furnish.</title>
+  <link rel="stylesheet" href="font/fontawesome-free-6.1.1-web/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="side2" id="sidebar">
+    <div class="sidebar-logo">Furnish<span>.</span></div>
+    <ul>
+      <li onclick="location.href='demo.html'">Home</li>
+      <li onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></li>
+      <li onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></li>
+      <li onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></li>
+      <li onclick="location.href='about.html'" class="nav-active">About</li>
+      <li onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></li>
+    </ul>
+  </div>
+
+  <nav class="navbar">
+    <div class="list">
+      <a class="nav-logo" href="demo.html">Furnish<span>.</span></a>
+      <div class="category" id="categoryBtn"><p><i class="fa-solid fa-bars"></i>&nbsp; Category</p></div>
+      <div class="list-icon">
+        <ul>
+          <li><p id="home" class="nav-link-item" onclick="location.href='demo.html'">Home</p><i id="st1" class="fa-solid fa-chevron-down"></i><div class="list-home"><ul><li onclick="location.href='shop.html'">Living Room</li><li onclick="location.href='shop.html'">Bedroom</li><li onclick="location.href='shop.html'">Office</li></ul></div></li>
+          <li><p id="featured" class="nav-link-item" onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></p><i id="st2" class="fa-solid fa-chevron-down"></i><div class="list-home2"><ul><li onclick="location.href='featured.html'">New Arrivals</li><li onclick="location.href='featured.html'">Best Sellers</li><li onclick="location.href='featured.html'">On Sale</li></ul></div></li>
+          <li><p id="shop" class="nav-link-item" onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></p><i id="st3" class="fa-solid fa-chevron-down"></i><div class="list-home3"><ul><li onclick="location.href='shop.html'">Sofas</li><li onclick="location.href='shop.html'">Chairs</li><li onclick="location.href='shop.html'">Tables</li></ul></div></li>
+          <li><p id="blog" class="nav-link-item" onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></p><i id="st4" class="fa-solid fa-chevron-down"></i><div class="list-home4"><ul><li onclick="location.href='blog.html'">Design Tips</li><li onclick="location.href='blog.html'">Trends</li><li onclick="location.href='blog.html'">Guides</li></ul></div></li>
+          <li><p id="about" class="nav-link-item nav-active" onclick="location.href='about.html'">About</p><i id="st5" class="fa-solid fa-chevron-down"></i><div class="list-home5"><ul><li onclick="location.href='about.html'">Our Story</li><li onclick="location.href='about.html'">Team</li><li onclick="location.href='about.html'">Careers</li></ul></div></li>
+          <li><p id="contact" class="nav-link-item" onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></p><i id="st6" class="fa-solid fa-chevron-down"></i><div class="list-home6"><ul><li onclick="location.href='contact.html'">Get in Touch</li><li onclick="location.href='contact.html'">Support</li><li onclick="location.href='contact.html'">Locations</li></ul></div></li>
+        </ul>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="nav-badge" id="wishlistCount">2</span></button>
+        <button class="nav-icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="nav-badge" id="cartCount">3</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="trust-icon">🚚</span><span>Free Shipping on orders over $99</span></div>
+      <div class="trust-item"><span class="trust-icon">🔄</span><span>30-Day Returns</span></div>
+      <div class="trust-item"><span class="trust-icon">🛡️</span><span>2-Year Warranty</span></div>
+      <div class="trust-item"><span class="trust-icon">💳</span><span>Secure Payment</span></div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-pill">🏠 Our Story</div>
+    <h1>About <span>Furnish.</span></h1>
+    <p>15 years of crafting beautiful spaces. Meet the team behind the furniture you love.</p>
+    <div class="breadcrumb">
+      <a href="demo.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>About</span>
+    </div>
+  </div>
+
+  <!-- Our Story -->
+  <div class="about-grid" style="margin-top:70px">
+    <div class="about-img reveal">
+      <img src="img/catalog_img.png" alt="Our Story" />
+    </div>
+    <div class="about-text reveal">
+      <h2>We Turn Houses Into <span>Homes</span></h2>
+      <p>Founded in 2009, Furnish. started as a small workshop in Los Angeles with a simple belief: everyone deserves beautiful, well-crafted furniture that lasts a lifetime.</p>
+      <p>Today, we serve over 50,000 happy customers across the US, offering more than 1,200 curated pieces that blend timeless design with modern functionality. Every item in our collection is hand-selected by our team of interior designers and quality experts.</p>
+      <p>We partner with sustainable manufacturers who share our commitment to quality craftsmanship and environmental responsibility — because the best furniture shouldn't cost the planet.</p>
+      <div class="about-values">
+        <div class="value-card">
+          <i class="fa-solid fa-leaf"></i>
+          <h4>Sustainability</h4>
+          <p>Eco-friendly materials and responsible sourcing in every piece.</p>
+        </div>
+        <div class="value-card">
+          <i class="fa-solid fa-star"></i>
+          <h4>Quality First</h4>
+          <p>Every product passes our 12-point quality inspection.</p>
+        </div>
+        <div class="value-card">
+          <i class="fa-solid fa-heart"></i>
+          <h4>Customer Love</h4>
+          <p>4.8/5 average rating from 50,000+ verified reviews.</p>
+        </div>
+        <div class="value-card">
+          <i class="fa-solid fa-truck"></i>
+          <h4>Fast Delivery</h4>
+          <p>Free shipping on orders over $99, delivered in 3–5 days.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Band -->
+  <div class="stats-band">
+    <div class="stats-band-inner">
+      <div class="stat-item reveal"><strong>1,200+</strong><span>Products Available</span></div>
+      <div class="stat-item reveal"><strong>50K+</strong><span>Happy Customers</span></div>
+      <div class="stat-item reveal"><strong>15+</strong><span>Years Experience</span></div>
+      <div class="stat-item reveal"><strong>4.8★</strong><span>Average Rating</span></div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="section-header" style="background:var(--bg)">
+    <h1>Meet the Team</h1>
+    <p>The passionate people behind every piece in our collection.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar">AM</div>
+      <div class="team-info">
+        <h4>Ahmed Mohamed</h4>
+        <span>Founder &amp; CEO</span>
+        <div class="team-socials">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">SR</div>
+      <div class="team-info">
+        <h4>Sara Reynolds</h4>
+        <span>Head of Design</span>
+        <div class="team-socials">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">JK</div>
+      <div class="team-info">
+        <h4>James Kim</h4>
+        <span>Product Director</span>
+        <div class="team-socials">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">PR</div>
+      <div class="team-info">
+        <h4>Priya Rao</h4>
+        <span>Lead Architect</span>
+        <div class="team-socials">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-behance"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="thelast">
+    <div class="last">
+      <div class="last1">
+        <h2>Furnish<span class="logo-dot">.</span></h2>
+        <p>We believe great furniture transforms a house into a home.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="last2">
+        <h2>Contact Us</h2>
+        <p><span><i class="fa-solid fa-location-dot"></i> 1203 Fake Street Drive</span><span><i class="fa-solid fa-phone"></i> +474 (7485) 2300</span><span><i class="fa-solid fa-envelope"></i> info@furnish.com</span></p>
+      </div>
+      <div class="last3">
+        <h2>Quick Links</h2>
+        <p><span onclick="location.href='demo.html'">Home</span><span onclick="location.href='shop.html'">Shop</span><span onclick="location.href='blog.html'">Blog</span><span onclick="location.href='contact.html'">Contact</span></p>
+      </div>
+      <div class="last4">
+        <h2>Our Values</h2>
+        <p><span>Sustainability</span><span>Quality First</span><span>Customer Love</span><span>Fast Delivery</span></p>
+      </div>
+    </div>
+    <div class="floor">
+      <p>&copy; 2024 Furnish. &mdash; All Rights Reserved.</p>
+      <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+    </div>
+  </div>
+
+  <script src="navbar.js"></script>
+</body>
+</html>

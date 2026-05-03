@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "framework": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/demo.html"
+    },
+    {
+      "src": "^/home$",
+      "dest": "/demo.html"
+    },
+    {
+      "src": "^/featured$",
+      "dest": "/featured.html"
+    },
+    {
+      "src": "^/shop$",
+      "dest": "/shop.html"
+    },
+    {
+      "src": "^/blog$",
+      "dest": "/blog.html"
+    },
+    {
+      "src": "^/about$",
+      "dest": "/about.html"
+    },
+    {
+      "src": "^/contact$",
+      "dest": "/contact.html"
+    },
+    {
+      "src": "^/(.*)\\.html$",
+      "dest": "/$1.html"
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",  "value": "nosniff" },
+        { "key": "X-Frame-Options",          "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection",         "value": "1; mode=block" },
+        { "key": "Referrer-Policy",          "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/font/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}

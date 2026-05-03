@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Featured — Furnish.</title>
+  <link rel="stylesheet" href="font/fontawesome-free-6.1.1-web/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="side2" id="sidebar">
+    <div class="sidebar-logo">Furnish<span>.</span></div>
+    <ul>
+      <li onclick="location.href='demo.html'">Home</li>
+      <li onclick="location.href='featured.html'" class="nav-active">Featured <span class="badge badge-hot">HOT</span></li>
+      <li onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></li>
+      <li onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></li>
+      <li onclick="location.href='about.html'">About</li>
+      <li onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></li>
+    </ul>
+  </div>
+
+  <nav class="navbar">
+    <div class="list">
+      <a class="nav-logo" href="demo.html">Furnish<span>.</span></a>
+      <div class="category" id="categoryBtn"><p><i class="fa-solid fa-bars"></i>&nbsp; Category</p></div>
+      <div class="list-icon">
+        <ul>
+          <li><p id="home" class="nav-link-item" onclick="location.href='demo.html'">Home</p><i id="st1" class="fa-solid fa-chevron-down"></i><div class="list-home"><ul><li onclick="location.href='shop.html'">Living Room</li><li onclick="location.href='shop.html'">Bedroom</li><li onclick="location.href='shop.html'">Office</li></ul></div></li>
+          <li><p id="featured" class="nav-link-item nav-active" onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></p><i id="st2" class="fa-solid fa-chevron-down"></i><div class="list-home2"><ul><li onclick="location.href='featured.html'">New Arrivals</li><li onclick="location.href='featured.html'">Best Sellers</li><li onclick="location.href='featured.html'">On Sale</li></ul></div></li>
+          <li><p id="shop" class="nav-link-item" onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></p><i id="st3" class="fa-solid fa-chevron-down"></i><div class="list-home3"><ul><li onclick="location.href='shop.html'">Sofas</li><li onclick="location.href='shop.html'">Chairs</li><li onclick="location.href='shop.html'">Tables</li></ul></div></li>
+          <li><p id="blog" class="nav-link-item" onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></p><i id="st4" class="fa-solid fa-chevron-down"></i><div class="list-home4"><ul><li onclick="location.href='blog.html'">Design Tips</li><li onclick="location.href='blog.html'">Trends</li><li onclick="location.href='blog.html'">Guides</li></ul></div></li>
+          <li><p id="about" class="nav-link-item" onclick="location.href='about.html'">About</p><i id="st5" class="fa-solid fa-chevron-down"></i><div class="list-home5"><ul><li onclick="location.href='about.html'">Our Story</li><li onclick="location.href='about.html'">Team</li><li onclick="location.href='about.html'">Careers</li></ul></div></li>
+          <li><p id="contact" class="nav-link-item" onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></p><i id="st6" class="fa-solid fa-chevron-down"></i><div class="list-home6"><ul><li onclick="location.href='contact.html'">Get in Touch</li><li onclick="location.href='contact.html'">Support</li><li onclick="location.href='contact.html'">Locations</li></ul></div></li>
+        </ul>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="nav-badge" id="wishlistCount">2</span></button>
+        <button class="nav-icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="nav-badge" id="cartCount">3</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="trust-icon">🚚</span><span>Free Shipping on orders over $99</span></div>
+      <div class="trust-item"><span class="trust-icon">🔄</span><span>30-Day Returns</span></div>
+      <div class="trust-item"><span class="trust-icon">🛡️</span><span>2-Year Warranty</span></div>
+      <div class="trust-item"><span class="trust-icon">💳</span><span>Secure Payment</span></div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-pill">🔥 Hot Picks</div>
+    <h1>Featured <span>Deals</span></h1>
+    <p>Handpicked bestsellers, new arrivals, and limited-time offers — all in one place.</p>
+    <div class="breadcrumb">
+      <a href="demo.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Featured</span>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="filter-tabs">
+      <button class="filter-tab active">All</button>
+      <button class="filter-tab">New Arrivals</button>
+      <button class="filter-tab">Best Sellers</button>
+      <button class="filter-tab">On Sale</button>
+      <button class="filter-tab">Under $300</button>
+    </div>
+    <div class="filter-sort">
+      <span>Sort by:</span>
+      <select>
+        <option>Most Popular</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Newest First</option>
+        <option>Top Rated</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products-grid">
+
+    <div class="npro reveal">
+      <span class="card-badge badge-gold">BESTSELLER</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/new_product_img_1.png" alt="Nordic Lounge Chair" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star-half-stroke filled"></i></div>
+      <p class="review-text">4.8 ★ (124 Reviews)</p>
+      <h2>Nordic Lounge Chair</h2>
+      <div class="price-row"><span class="price-old">$380.00</span><span class="price-new">$289.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-sale">SALE -22%</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/new_product_img_2.png" alt="Velvet Accent Sofa" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star-half-stroke filled"></i></div>
+      <p class="review-text">4.6 ★ (89 Reviews)</p>
+      <h2>Velvet Accent Sofa</h2>
+      <div class="price-row"><span class="price-old">$1,600.00</span><span class="price-new">$1,249.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-purple">TOP RATED</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/new_product_img_3.png" alt="Marble Coffee Table" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i></div>
+      <p class="review-text">4.9 ★ (201 Reviews)</p>
+      <h2>Marble Coffee Table</h2>
+      <div class="price-row"><span class="price-old">$520.00</span><span class="price-new">$449.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-new">NEW</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/new_product_img_4.png" alt="Rattan Bookshelf" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star-half-stroke filled"></i></div>
+      <p class="review-text">4.5 ★ (67 Reviews)</p>
+      <h2>Rattan Bookshelf</h2>
+      <div class="price-row"><span class="price-old">$260.00</span><span class="price-new">$199.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-off">30% OFF</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/featured_deals_img_1.png" alt="Scandinavian Armchair" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star-half-stroke filled"></i></div>
+      <p class="review-text">4.7 ★ (55 Reviews)</p>
+      <h2>Scandinavian Armchair</h2>
+      <div class="price-row"><span class="price-old">$240.00</span><span class="price-new">$179.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-off">22% OFF</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/featured_deals_img_2.png" alt="Oak Dining Table" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star-half-stroke filled"></i></div>
+      <p class="review-text">4.5 ★ (38 Reviews)</p>
+      <h2>Oak Dining Table</h2>
+      <div class="price-row"><span class="price-old">$899.00</span><span class="price-new">$699.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-off">24% OFF</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/featured_deals_img_3.png" alt="Linen Bed Frame" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i></div>
+      <p class="review-text">4.8 ★ (92 Reviews)</p>
+      <h2>Linen Bed Frame</h2>
+      <div class="price-row"><span class="price-old">$720.00</span><span class="price-new">$549.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+    <div class="npro reveal">
+      <span class="card-badge badge-off">22% OFF</span>
+      <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+      <img src="img/featured_deals_img_4.png" alt="Walnut TV Stand" />
+      <div class="stars"><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star filled"></i><i class="fa-solid fa-star-half-stroke filled"></i></div>
+      <p class="review-text">4.6 ★ (44 Reviews)</p>
+      <h2>Walnut TV Stand</h2>
+      <div class="price-row"><span class="price-old">$420.00</span><span class="price-new">$329.00</span></div>
+      <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button class="page-btn active">1</button>
+    <button class="page-btn">2</button>
+    <button class="page-btn">3</button>
+    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Footer -->
+  <div class="thelast">
+    <div class="last">
+      <div class="last1">
+        <h2>Furnish<span class="logo-dot">.</span></h2>
+        <p>We believe great furniture transforms a house into a home. Our curated collections blend timeless design with modern comfort.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="last2">
+        <h2>Contact Us</h2>
+        <p>
+          <span><i class="fa-solid fa-location-dot"></i> 1203 Fake Street Drive</span>
+          <span><i class="fa-solid fa-phone"></i> +474 (7485) 2300</span>
+          <span><i class="fa-solid fa-envelope"></i> info@furnish.com</span>
+        </p>
+      </div>
+      <div class="last3">
+        <h2>Quick Links</h2>
+        <p>
+          <span onclick="location.href='demo.html'">Home</span>
+          <span onclick="location.href='shop.html'">Shop</span>
+          <span onclick="location.href='blog.html'">Blog</span>
+          <span onclick="location.href='about.html'">About Us</span>
+        </p>
+      </div>
+      <div class="last4">
+        <h2>Our Portfolio</h2>
+        <p>
+          <span>EFTA Event</span>
+          <span>Country Feast</span>
+          <span>Soo Conference</span>
+          <span>LA Event</span>
+        </p>
+      </div>
+    </div>
+    <div class="floor">
+      <p>&copy; 2024 Furnish. &mdash; All Rights Reserved.</p>
+      <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+    </div>
+  </div>
+
+  <script src="navbar.js"></script>
+  <script>
+    // Filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+    // Cart & wishlist
+    const cartEl = document.getElementById('cartCount');
+    const wishEl = document.getElementById('wishlistCount');
+    let cartN = 3, wishN = 2;
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        cartEl.textContent = ++cartN;
+        cartEl.style.transform = 'scale(1.5)';
+        setTimeout(() => cartEl.style.transform = '', 250);
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+        btn.style.background = '#22c55e';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 1200);
+      });
+    });
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const active = btn.classList.toggle('active');
+        const icon = btn.querySelector('i');
+        icon.classList.toggle('fa-regular', !active);
+        icon.classList.toggle('fa-solid', active);
+        wishN = active ? wishN + 1 : Math.max(0, wishN - 1);
+        wishEl.textContent = wishN;
+      });
+    });
+  </script>
+</body>
+</html>

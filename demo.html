@@ -1,589 +1,888 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      rel="stylesheet"
-      href="font/fontawesome-free-6.1.1-web/css/all.min.css"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Furnish. — Premium modern furniture for every room. Shop sofas, chairs, tables, and more. Free shipping on orders over $99." />
+    <meta name="author" content="Ahmed Mohamed" />
+    <meta name="keywords" content="furniture, modern furniture, sofa, chairs, tables, home decor, interior design" />
+    <!-- Favicon emoji -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛋️</text></svg>" />
+    <title>Furnish. — Premium Modern Furniture</title>
+    <link rel="stylesheet" href="font/fontawesome-free-6.1.1-web/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── PROMO BANNER ── */
+      .promo-banner {
+        background: linear-gradient(90deg, #1a1a2e, #2d2d4e, #1a1a2e);
+        background-size: 200% 100%;
+        animation: bannerSlide 6s linear infinite;
+        color: #fff;
+        text-align: center;
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        position: relative;
+      }
+      .promo-banner span { color: var(--primary); }
+      .promo-banner .promo-close {
+        position: absolute; right: 16px; top: 50%;
+        transform: translateY(-50%);
+        background: none; border: none; color: rgba(255,255,255,0.5);
+        font-size: 16px; cursor: pointer; line-height: 1;
+        transition: color 0.2s;
+      }
+      .promo-banner .promo-close:hover { color: #fff; }
+      @keyframes bannerSlide {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 200% 50%; }
+      }
+
+      /* ── HERO IMPROVEMENTS ── */
+      .hero-btn-group { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+      .btn-ghost {
+        display: inline-flex; align-items: center; gap: 8px;
+        border: 2px solid rgba(26,26,46,0.25);
+        color: var(--dark); padding: 14px 28px;
+        border-radius: 50px; font-size: 15px; font-weight: 600;
+        cursor: pointer; background: transparent;
+        transition: var(--transition);
+      }
+      .btn-ghost:hover { border-color: var(--primary); color: var(--primary); background: rgba(244,131,89,0.06); }
+      .hero-stat-divider { width: 1px; height: 36px; background: rgba(26,26,46,0.15); }
+
+      /* ── WHY US BAND ── */
+      .why-us {
+        background: var(--white);
+        padding: 56px 20px;
+        border-bottom: 1px solid #f0ebe7;
+      }
+      .why-us-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        width: 88%; max-width: 1280px; margin: 0 auto;
+      }
+      .why-card {
+        text-align: center; padding: 28px 20px;
+        border-radius: var(--radius);
+        border: 1.5px solid #f0ebe7;
+        transition: var(--transition);
+        cursor: default;
+      }
+      .why-card:hover {
+        border-color: var(--primary);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-4px);
+      }
+      .why-icon {
+        width: 56px; height: 56px; border-radius: 14px;
+        background: rgba(244,131,89,0.1);
+        color: var(--primary); font-size: 22px;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 16px;
+        transition: var(--transition);
+      }
+      .why-card:hover .why-icon { background: var(--primary); color: #fff; }
+      .why-card h4 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+      .why-card p  { font-size: 13px; color: var(--text-light); line-height: 1.6; margin: 0; }
+
+      /* ── BRANDS STRIP ── */
+      .brands-strip {
+        background: var(--bg);
+        padding: 40px 20px;
+        border-top: 1px solid #ede8e3;
+        border-bottom: 1px solid #ede8e3;
+        overflow: hidden;
+      }
+      .brands-strip p {
+        text-align: center; font-size: 12px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1.5px;
+        color: var(--text-light); margin-bottom: 24px;
+      }
+      .brands-track {
+        display: flex; gap: 48px; align-items: center;
+        justify-content: center; flex-wrap: wrap;
+      }
+      .brand-item {
+        font-size: 18px; font-weight: 800; color: #ccc;
+        letter-spacing: -0.5px; transition: var(--transition);
+        cursor: default; white-space: nowrap;
+      }
+      .brand-item:hover { color: var(--primary); }
+
+      /* ── SECTION LABEL ── */
+      .section-label {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-size: 11px; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 1.5px; color: var(--primary);
+        margin-bottom: 10px;
+      }
+      .section-label::before {
+        content: ''; width: 20px; height: 2px;
+        background: var(--primary); border-radius: 2px;
+      }
+
+      /* ── FLOOR IMPROVEMENTS ── */
+      .floor-inner {
+        display: flex; align-items: center;
+        justify-content: space-between; flex-wrap: wrap;
+        gap: 8px;
+        width: 88%; max-width: 1280px; margin: 0 auto;
+      }
+      .floor-credit { color: rgba(255,255,255,0.4); font-size: 12px; }
+      .floor-credit a { color: var(--primary); transition: color 0.2s; }
+      .floor-credit a:hover { color: #fff; }
+
+      @media (max-width: 1024px) { .why-us-inner { grid-template-columns: repeat(2,1fr); } }
+      @media (max-width: 600px)  { .why-us-inner { grid-template-columns: 1fr; } .hero-btn-group { flex-direction: column; align-items: flex-start; } }
+    </style>
   </head>
   <body>
 
-    <div class="side2">
-      <ul>
-        <li>home</li>
-        <li>FEATURED</li>
-        <li>SHOP</li>
-        <li>BLOG</li>
-        <li>about</li>
-        <li>contact</li>
-        </ul>
+    <!-- Promo Banner -->
+    <div class="promo-banner" id="promoBanner">
+      🎉 Summer Sale is Live! Use code <span>FURNISH20</span> for 20% off your first order.
+      &nbsp;·&nbsp; <a href="shop.html" style="color:var(--primary);font-weight:700">Shop Now →</a>
+      <button class="promo-close" onclick="document.getElementById('promoBanner').style.display='none'" aria-label="Close">✕</button>
     </div>
-  
-    <div
-      style="position: sticky; top: 5px; background-color: #fff; z-index: 1000"
-      class="ee"
-    >
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <div class="side2" id="sidebar">
+      <div class="sidebar-logo">Furnish<span>.</span></div>
+      <ul>
+        <li onclick="location.href='demo.html'">Home</li>
+        <li onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></li>
+        <li onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></li>
+        <li onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></li>
+        <li onclick="location.href='about.html'">About</li>
+        <li onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></li>
+      </ul>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
       <div class="list">
-        <div style="position: relative" class="category">
-          <p>Category</p>
-          <i
-            style="
-              position: absolute;
-              top: 35px;
-              left: 10px;
-              color: #fff;
-              cursor: pointer;
-            "
-            class="fa-solid fa-bars"
-          ></i>
+        <!-- Logo -->
+        <a class="nav-logo" href="demo.html">Furnish<span>.</span></a>
+
+        <!-- Category button -->
+        <div class="category" id="categoryBtn">
+          <p>
+            <i class="fa-solid fa-bars"></i>&nbsp; Category
+          </p>
         </div>
 
+        <!-- Nav links -->
         <div class="list-icon">
           <ul>
-            <li style="position: relative">
-              <p id="home">home</p>
-              <i
-                id="st1"
-                style="
-                  position: absolute;
-                  left: 107px;
-                  top: 12px;
-                  cursor: pointer;
-                "
-                class="fa-solid fa-chevron-down"
-              ></i>
-
+            <!-- Home -->
+            <li>
+              <p id="home" class="nav-link-item" onclick="location.href='demo.html'">Home</p>
+              <i id="st1" class="fa-solid fa-chevron-down"></i>
               <div class="list-home">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li onclick="location.href='shop.html'">Living Room</li>
+                  <li onclick="location.href='shop.html'">Bedroom</li>
+                  <li onclick="location.href='shop.html'">Office</li>
                 </ul>
               </div>
             </li>
 
-            <!-- #2 -->
-
-            <li style="position: relative">
-              <p id="featured">featured</p>
-              <i
-                id="st2"
-                style="
-                  position: absolute;
-                  left: 138px;
-                  top: 12px;
-                  cursor: pointer;
-                "
-                class="fa-solid fa-chevron-down"
-              ></i>
-
+            <!-- Featured -->
+            <li>
+              <p id="featured" class="nav-link-item" onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></p>
+              <i id="st2" class="fa-solid fa-chevron-down"></i>
               <div class="list-home2">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li onclick="location.href='featured.html'">New Arrivals</li>
+                  <li onclick="location.href='featured.html'">Best Sellers</li>
+                  <li onclick="location.href='featured.html'">On Sale</li>
                 </ul>
               </div>
             </li>
 
-            <!--#3  -->
-
-            <li style="position: relative">
-              <p id="shop">shop</p>
-              <i
-                id="st3"
-                style="
-                  position: absolute;
-                  left: 101px;
-                  top: 12px;
-                  cursor: pointer;
-                "
-                class="fa-solid fa-chevron-down"
-              ></i>
-
+            <!-- Shop -->
+            <li>
+              <p id="shop" class="nav-link-item" onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></p>
+              <i id="st3" class="fa-solid fa-chevron-down"></i>
               <div class="list-home3">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li onclick="location.href='shop.html'">Sofas</li>
+                  <li onclick="location.href='shop.html'">Chairs</li>
+                  <li onclick="location.href='shop.html'">Tables</li>
                 </ul>
               </div>
             </li>
 
-            <!-- #4 -->
-            <li style="position: relative">
-              <p id="blog">blog</p>
-              <i
-                id="st4"
-                style="
-                  position: absolute;
-                  left: 104px;
-                  top: 12px;
-                  cursor: pointer;
-                "
-                class="fa-solid fa-chevron-down"
-              ></i>
-
+            <!-- Blog -->
+            <li>
+              <p id="blog" class="nav-link-item" onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></p>
+              <i id="st4" class="fa-solid fa-chevron-down"></i>
               <div class="list-home4">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li onclick="location.href='blog.html'">Design Tips</li>
+                  <li onclick="location.href='blog.html'">Trends</li>
+                  <li onclick="location.href='blog.html'">Guides</li>
                 </ul>
               </div>
             </li>
 
-            <!-- #5 -->
-            <li style="position: relative">
-              <p id="about">about</p>
-              <i
-                id="st5"
-                style="
-                  position: absolute;
-                  left: 114px;
-                  top: 12px;
-                  cursor: pointer;
-                "
-                class="fa-solid fa-chevron-down"
-              ></i>
-
+            <!-- About -->
+            <li>
+              <p id="about" class="nav-link-item" onclick="location.href='about.html'">About</p>
+              <i id="st5" class="fa-solid fa-chevron-down"></i>
               <div class="list-home5">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li onclick="location.href='about.html'">Our Story</li>
+                  <li onclick="location.href='about.html'">Team</li>
+                  <li onclick="location.href='about.html'">Careers</li>
                 </ul>
               </div>
             </li>
 
-            <!-- #6 -->
-            <li style="position: relative">
-              <p id="contact">contact</p>
-              <i
-                id="st6"
-                style="
-                  position: absolute;
-                  left: 132px;
-                  top: 12px;
-                  cursor: pointer;
-                "
-                class="fa-solid fa-chevron-down"
-              ></i>
-
+            <!-- Contact -->
+            <li>
+              <p id="contact" class="nav-link-item" onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></p>
+              <i id="st6" class="fa-solid fa-chevron-down"></i>
               <div class="list-home6">
                 <ul>
-                  <li>lorem</li>
-                  <li>lorem</li>
-                  <li>lorem</li>
+                  <li onclick="location.href='contact.html'">Get in Touch</li>
+                  <li onclick="location.href='contact.html'">Support</li>
+                  <li onclick="location.href='contact.html'">Locations</li>
                 </ul>
               </div>
             </li>
           </ul>
         </div>
+
+        <!-- Navbar action buttons -->
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="wishlistBtn" aria-label="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="nav-badge" id="wishlistCount">2</span>
+          </button>
+          <button class="nav-icon-btn" id="cartBtn" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="nav-badge" id="cartCount">3</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+      <div class="trust-bar-inner">
+        <div class="trust-item">
+          <span class="trust-icon">🚚</span>
+          <span>Free Shipping on orders over $99</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔄</span>
+          <span>30-Day Returns</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🛡️</span>
+          <span>2-Year Warranty</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">💳</span>
+          <span>Secure Payment</span>
+        </div>
       </div>
     </div>
 
+    <!-- Hero Section -->
     <section>
       <div class="sec1">
         <div class="prg">
+          <div class="hero-badge-pill">✨ New Collection 2024</div>
           <h1>
-            Best Design of <br />
-            Furniture Collection
+            Best Design of<br />
+            <span>Furniture</span> Collection
           </h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-            explicdi quis numquam <br />amet consectetur adipisicing elit.
-            voluptatum temporibus eius fuga.
+            Discover timeless pieces crafted for modern living. Elevate every
+            room with furniture that blends comfort, style, and quality.
           </p>
-          <br /><br />
-          <button>Shop now</button>
+          <div class="hero-btn-group">
+            <button class="btn-primary" onclick="location.href='shop.html'">
+              Shop Now &nbsp;<i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn-ghost" onclick="location.href='about.html'">
+              <i class="fa-regular fa-play-circle"></i> Our Story
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>1,200+</strong>
+              <span>Products</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <strong>50K+</strong>
+              <span>Happy Customers</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <strong>15+</strong>
+              <span>Years Experience</span>
+            </div>
+          </div>
         </div>
         <div class="imge">
-          <img src="img/header-sofa-img.png" alt="" />
+          <img src="img/header-sofa-img.png" alt="Featured sofa" />
         </div>
       </div>
     </section>
-    <br />
 
-    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">
-      Top New Products
-    </h1>
-    <p style="text-align: center">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia et lore
-      volupt ate incidunt aspernatur illo
-    </p>
+    <!-- Why Us Band -->
+    <div class="why-us">
+      <div class="why-us-inner">
+        <div class="why-card reveal">
+          <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h4>Free Fast Shipping</h4>
+          <p>Free delivery on all orders over $99. Arrives in 3–5 business days.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon"><i class="fa-solid fa-rotate-left"></i></div>
+          <h4>30-Day Returns</h4>
+          <p>Not happy? Return any item within 30 days, no questions asked.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>2-Year Warranty</h4>
+          <p>Every piece is backed by our comprehensive 2-year quality warranty.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+          <h4>24/7 Support</h4>
+          <p>Our design experts are available around the clock to help you.</p>
+        </div>
+      </div>
+    </div>
 
-    <br /><br /><br />
+    <!-- Top New Products -->
+    <div class="section-header">
+      <div class="section-label"><i class="fa-solid fa-fire"></i> Trending Now</div>
+      <h1>Top New Products</h1>
+      <p>Handpicked pieces that bring elegance and comfort to your home.</p>
+    </div>
 
     <div class="newproducts">
-      <div class="npro pro1">
-        <img src="img/new_product_img_1.png" alt="" />
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <p style="color: gray">Review )</p>
-        <h2>Decore For Drowing Room</h2>
-        <span style="color: grey; text-decoration: line-through">$50.00</span>
-        <span style="color: orangered; margin-left: 20px">$35.00</span>
-
-        <i class="ss fa-brands fa-cc-visa"></i>
+      <!-- Product 1: Nordic Lounge Chair -->
+      <div class="npro pro1 reveal">
+        <span class="card-badge badge-gold">BESTSELLER</span>
+        <button class="wishlist-btn" aria-label="Add to wishlist">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="img/new_product_img_1.png" alt="Nordic Lounge Chair" />
+        <div class="stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star-half-stroke filled"></i>
+        </div>
+        <p class="review-text">4.8 ★ (124 Reviews)</p>
+        <h2>Nordic Lounge Chair</h2>
+        <div class="price-row">
+          <span class="price-old">$380.00</span>
+          <span class="price-new">$289.00</span>
+        </div>
+        <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
       </div>
 
-      <div class="npro pro2">
-        <img src="img/new_product_img_2.png" alt="" />
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-
-        <p style="color: gray">Review )</p>
-        <h2>Decore For Drowing Room</h2>
-        <span style="color: grey; text-decoration: line-through">$50.00</span>
-        <span style="color: orangered; margin-left: 20px">$35.00</span>
-        <i class="ss fa-brands fa-cc-visa"></i>
+      <!-- Product 2: Velvet Accent Sofa -->
+      <div class="npro pro2 reveal">
+        <span class="card-badge badge-sale">SALE -22%</span>
+        <button class="wishlist-btn" aria-label="Add to wishlist">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="img/new_product_img_2.png" alt="Velvet Accent Sofa" />
+        <div class="stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star-half-stroke filled"></i>
+        </div>
+        <p class="review-text">4.6 ★ (89 Reviews)</p>
+        <h2>Velvet Accent Sofa</h2>
+        <div class="price-row">
+          <span class="price-old">$1,600.00</span>
+          <span class="price-new">$1,249.00</span>
+        </div>
+        <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
       </div>
 
-      <div class="npro pro3">
-        <img src="img/new_product_img_3.png" alt="" />
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-
-        <p style="color: gray">Review )</p>
-        <h2>Decore For Drowing Room</h2>
-        <span style="color: grey; text-decoration: line-through">$50.00</span>
-        <span style="color: orangered; margin-left: 20px">$35.00</span>
-
-        <i class="ss fa-brands fa-cc-visa"></i>
+      <!-- Product 3: Marble Coffee Table -->
+      <div class="npro pro3 reveal">
+        <span class="card-badge badge-purple">TOP RATED</span>
+        <button class="wishlist-btn" aria-label="Add to wishlist">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="img/new_product_img_3.png" alt="Marble Coffee Table" />
+        <div class="stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+        </div>
+        <p class="review-text">4.9 ★ (201 Reviews)</p>
+        <h2>Marble Coffee Table</h2>
+        <div class="price-row">
+          <span class="price-old">$520.00</span>
+          <span class="price-new">$449.00</span>
+        </div>
+        <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
       </div>
 
-      <div class="npro pro4">
-        <img src="img/new_product_img_4.png" alt="" />
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: orangered" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-        <i style="color: gray" class="fa-solid fa-star"></i>
-
-        <p style="color: gray">Review )</p>
-        <h2>Decore For Drowing Room</h2>
-        <span style="color: grey; text-decoration: line-through">$50.00</span>
-        <span style="color: orangered; margin-left: 20px">$35.00</span>
-        <i class="ss fa-brands fa-cc-visa"></i>
+      <!-- Product 4: Rattan Bookshelf -->
+      <div class="npro pro4 reveal">
+        <span class="card-badge badge-new">NEW</span>
+        <button class="wishlist-btn" aria-label="Add to wishlist">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <img src="img/new_product_img_4.png" alt="Rattan Bookshelf" />
+        <div class="stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star-half-stroke filled"></i>
+        </div>
+        <p class="review-text">4.5 ★ (67 Reviews)</p>
+        <h2>Rattan Bookshelf</h2>
+        <div class="price-row">
+          <span class="price-old">$260.00</span>
+          <span class="price-new">$199.00</span>
+        </div>
+        <div class="cart-overlay add-to-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</div>
       </div>
     </div>
 
-    <br />
-    <br /><br /><br />
-
-    <div class="con">
+    <!-- Category Section -->
+    <div class="cat-section">
+      <div class="section-header" style="background:transparent; padding-bottom:32px;">
+        <div class="section-label"><i class="fa-solid fa-grid-2"></i> Browse</div>
+        <h1>Shop by Category</h1>
+        <p>Find exactly what you're looking for across our curated collections.</p>
+      </div>
       <div class="container-category">
-        <div style="position: relative" class="category0 category1">
-          <img src="img/category_img_1.png" alt="" />
-          <p
-            style="
-              position: absolute;
-              bottom: 25px;
-              left: 30px;
-              padding: 9px 20px;
-              background-color: #eee8e8;
-            "
-          >
-            safe Out
-          </p>
+        <div class="category0 category1 reveal">
+          <img src="img/category_img_1.png" alt="Sofas & Couches" />
+          <div class="cat-overlay">
+            <span class="cat-name">Sofas &amp; Couches</span>
+            <span class="cat-count-badge">142 items</span>
+          </div>
         </div>
-
-        <div style="position: relative" class="category0 category2">
-          <img src="img/category_img_2.png" alt="" />
-          <p
-            style="
-              position: absolute;
-              bottom: 25px;
-              left: 30px;
-              padding: 9px 20px;
-              background-color: #eee8e8;
-            "
-          >
-            safe Out
-          </p>
+        <div class="category0 category2 reveal">
+          <img src="img/category_img_2.png" alt="Dining Sets" />
+          <div class="cat-overlay">
+            <span class="cat-name">Dining Sets</span>
+            <span class="cat-count-badge">89 items</span>
+          </div>
         </div>
-        <div style="position: relative" class="category0 category3">
-          <img src="img/category_img_3.png" alt="" />
-
-          <p
-            style="
-              position: absolute;
-              bottom: 25px;
-              left: 30px;
-              padding: 9px 20px;
-              background-color: #eee8e8;
-            "
-          >
-            safe Out
-          </p>
+        <div class="category0 category3 reveal">
+          <img src="img/category_img_3.png" alt="Bedroom" />
+          <div class="cat-overlay">
+            <span class="cat-name">Bedroom</span>
+            <span class="cat-count-badge">203 items</span>
+          </div>
         </div>
-        <div style="position: relative" class="category0 category4">
-          <img src="img/category_img_4.png" alt="" />
-          <p
-            style="
-              position: absolute;
-              bottom: 208px;
-              left: 30px;
-              padding: 9px 20px;
-              background-color: #eee8e8;
-            "
-          >
-            safe Out
-          </p>
+        <div class="category0 category4 reveal">
+          <img src="img/category_img_4.png" alt="Office Chairs" />
+          <div class="cat-overlay">
+            <span class="cat-name">Office Chairs</span>
+            <span class="cat-count-badge">56 items</span>
+          </div>
         </div>
-        <div style="position: relative" class="category0 category5">
-          <img src="img/category_img_5.png" alt="" />
-          <p
-            style="
-              position: absolute;
-              bottom: 208px;
-              left: 30px;
-              padding: 9px 20px;
-              background-color: #eee8e8;
-            "
-          >
-            safe Out
-          </p>
+        <div class="category0 category5 reveal">
+          <img src="img/category_img_5.png" alt="Outdoor" />
+          <div class="cat-overlay">
+            <span class="cat-name">Outdoor</span>
+            <span class="cat-count-badge">78 items</span>
+          </div>
         </div>
-        <div style="position: relative" class="category0 category6">
-          <img src="img/category_img_6.png" alt="" />
-          <p
-            style="
-              position: absolute;
-              bottom: 208px;
-              left: 30px;
-              padding: 9px 20px;
-              background-color: #eee8e8;
-            "
-          >
-            safe Out
-          </p>
+        <div class="category0 category6 reveal">
+          <img src="img/category_img_6.png" alt="Lighting" />
+          <div class="cat-overlay">
+            <span class="cat-name">Lighting</span>
+            <span class="cat-count-badge">94 items</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <br />
-    <br /><br /><br />
-
-    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif">
-      Featured Deals
-    </h1>
-
-    <p
-      style="
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        padding-bottom: 20px;
-        color: gray;
-      "
-    >
-      Lorem ipsum dolor sit amet consectetur, sequi soluta aliqui
-    </p>
+    <!-- Featured Deals -->
+    <div class="section-header">
+      <div class="section-label"><i class="fa-solid fa-tag"></i> Limited Time</div>
+      <h1>Featured Deals</h1>
+      <p>Limited-time offers on our most popular furniture pieces.</p>
+    </div>
 
     <div class="containerDeals">
-      <div style="border: 1px solid rgb(252, 252, 252)" class="chair1">
-        <img src="img/featured_deals_img_1.png" alt="" />
-
-        <div
-          style="background: #fff; width: 245px; padding: 10px"
-          class="chair1Deal"
-        >
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <span style="color: gray"> (Review 5)</span>
-
-          <h3>Decore For Drowing Room</h3>
-          <span style="color: grey; text-decoration: line-through">$50.00</span>
-          <span style="color: orangered; margin-left: 20px">$35.00</span>
-
-          <i class="ss fa-brands fa-cc-visa"></i>
+      <!-- Deal 1: Scandinavian Armchair -->
+      <div class="chair1">
+        <div class="deal-img-wrap">
+          <img src="img/featured_deals_img_1.png" alt="Scandinavian Armchair" />
+          <span class="deal-badge badge-off">30% OFF</span>
+        </div>
+        <div class="chair1Deal">
+          <div class="stars">
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star-half-stroke filled"></i>
+            <span class="review-count">(55 reviews)</span>
+          </div>
+          <h3>Scandinavian Armchair</h3>
+          <div class="price-row">
+            <span class="price-old">$240.00</span>
+            <span class="price-new">$179.00</span>
+          </div>
+          <div class="countdown">
+            <i class="fa-regular fa-clock"></i>
+            Ends in: <span class="countdown-timer" data-end="">02:14:38</span>
+          </div>
         </div>
       </div>
 
+      <!-- Deal 2: Oak Dining Table -->
       <div class="chair1">
-        <img src="img/featured_deals_img_2.png" alt="" />
-        <div
-          style="background: #fff; width: 245px; padding: 10px"
-          class="chair1Deal"
-        >
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <span style="color: gray"> (Review 5)</span>
-
-          <h3>Decore For Drowing Room</h3>
-          <span style="color: grey; text-decoration: line-through">$50.00</span>
-          <span style="color: orangered; margin-left: 20px">$35.00</span>
-
-          <i class="ss fa-brands fa-cc-visa"></i>
+        <div class="deal-img-wrap">
+          <img src="img/featured_deals_img_2.png" alt="Oak Dining Table" />
+          <span class="deal-badge badge-off">22% OFF</span>
+        </div>
+        <div class="chair1Deal">
+          <div class="stars">
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star-half-stroke filled"></i>
+            <span class="review-count">(38 reviews)</span>
+          </div>
+          <h3>Oak Dining Table</h3>
+          <div class="price-row">
+            <span class="price-old">$899.00</span>
+            <span class="price-new">$699.00</span>
+          </div>
+          <div class="countdown">
+            <i class="fa-regular fa-clock"></i>
+            Ends in: <span class="countdown-timer" data-end="">02:14:38</span>
+          </div>
         </div>
       </div>
+
+      <!-- Deal 3: Linen Bed Frame -->
       <div class="chair1">
-        <img src="img/featured_deals_img_3.png" alt="" />
-        <div
-          style="background: #fff; width: 245px; padding: 10px"
-          class="chair1Deal"
-        >
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <span style="color: gray"> (Review 5)</span>
-
-          <h3>Decore For Drowing Room</h3>
-          <span style="color: grey; text-decoration: line-through">$50.00</span>
-          <span style="color: orangered; margin-left: 20px">$35.00</span>
-
-          <i class="ss fa-brands fa-cc-visa"></i>
+        <div class="deal-img-wrap">
+          <img src="img/featured_deals_img_3.png" alt="Linen Bed Frame" />
+          <span class="deal-badge badge-off">24% OFF</span>
+        </div>
+        <div class="chair1Deal">
+          <div class="stars">
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <span class="review-count">(92 reviews)</span>
+          </div>
+          <h3>Linen Bed Frame</h3>
+          <div class="price-row">
+            <span class="price-old">$720.00</span>
+            <span class="price-new">$549.00</span>
+          </div>
+          <div class="countdown">
+            <i class="fa-regular fa-clock"></i>
+            Ends in: <span class="countdown-timer" data-end="">02:14:38</span>
+          </div>
         </div>
       </div>
+
+      <!-- Deal 4: Walnut TV Stand -->
       <div class="chair1">
-        <img src="img/featured_deals_img_4.png" alt="" />
-        <div
-          style="background: #fff; width: 245px; padding: 10px"
-          class="chair1Deal"
-        >
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: orangered" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <i style="color: gray" class="fa-solid fa-star"></i>
-          <span style="color: gray"> (Review 5)</span>
-
-          <h3>Decore For Drowing Room</h3>
-          <span style="color: grey; text-decoration: line-through">$50.00</span>
-          <span style="color: orangered; margin-left: 20px">$35.00</span>
-
-          <i class="ss fa-brands fa-cc-visa"></i>
+        <div class="deal-img-wrap">
+          <img src="img/featured_deals_img_4.png" alt="Walnut TV Stand" />
+          <span class="deal-badge badge-off">22% OFF</span>
+        </div>
+        <div class="chair1Deal">
+          <div class="stars">
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star filled"></i>
+            <i class="fa-solid fa-star-half-stroke filled"></i>
+            <span class="review-count">(44 reviews)</span>
+          </div>
+          <h3>Walnut TV Stand</h3>
+          <div class="price-row">
+            <span class="price-old">$420.00</span>
+            <span class="price-new">$329.00</span>
+          </div>
+          <div class="countdown">
+            <i class="fa-regular fa-clock"></i>
+            Ends in: <span class="countdown-timer" data-end="">02:14:38</span>
+          </div>
         </div>
       </div>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br />
 
-    <div  class="container-kitchen">
-      <div class="kit1"><img src="img/catalog_img.png" alt=""></div>
+    <!-- Brands Strip -->
+    <div class="brands-strip">
+      <p>Trusted by leading brands &amp; designers worldwide</p>
+      <div class="brands-track">
+        <span class="brand-item">IKEA</span>
+        <span class="brand-item">Herman Miller</span>
+        <span class="brand-item">West Elm</span>
+        <span class="brand-item">Restoration Hardware</span>
+        <span class="brand-item">Pottery Barn</span>
+        <span class="brand-item">CB2</span>
+        <span class="brand-item">Article</span>
+      </div>
+    </div>
+
+    <!-- Catalog Banner -->
+    <div class="container-kitchen">
+      <div class="kit1">
+        <img src="img/catalog_img.png" alt="Modern living quarters" />
+      </div>
       <div class="kit2">
-        <h1 style="color: #fff; margin-top: 8%; margin-left: 5%; font-family: Arial, Helvetica, sans-serif;">Modern Living Quarters</h1>
-        <p style="color: #fff; margin-left: 5%; letter-spacing: 2px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Lorem ipsum dolor sit, amet consectetur adipisicing elit.  amet consectetur adipisicing elit. Voluptatum <br>
-          cumque illo placeat porro, dolore a praesentium!  amet consectetur adipisicing elit.  amet consectetur adipisicing elit. <br> <br>
-           explicabo fuga ipsum nostrum sed iusto!  amet consectetur adipisicing elit. Voluptatem eveniet saepe officiis numquam?</p>
+        <div class="kit2-badge">🏠 Curated Collection</div>
+        <h1>Elevate Your Living Space</h1>
+        <p>
+          Transform every corner of your home with our premium furniture collection.
+          Each piece is thoughtfully designed to blend timeless elegance with
+          everyday functionality — because your home deserves nothing less.
+        </p>
+        <button class="btn-outline">
+          Explore Full Catalog &nbsp;<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="section-header">
+      <div class="section-label"><i class="fa-solid fa-quote-left"></i> Reviews</div>
+      <h1>What Our Customers Say</h1>
+      <p>Real stories from real people who love their Furnish. pieces.</p>
+    </div>
+
+    <div class="container-testimonials">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card reveal">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">SM</div>
+          <div class="testimonial-meta">
+            <strong>Sarah M.</strong>
+            <span>Interior Designer, NYC</span>
+          </div>
+        </div>
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+        </div>
+        <p class="testimonial-quote">"The Nordic chair is absolutely stunning. Quality exceeded my expectations! It's become the centerpiece of my living room."</p>
       </div>
 
-    </div>
-    <br /><br /><br />
-    <h1 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Latest News</h1>
-  <p style="color: gray;text-align: center; padding-top: 10px; padding-bottom :18px;">Lorem ipsum dolor sit amet consectetur adipisicing elit eligendi quos qua</p>
-  
-    <div class="container-crad">
-
-
-        <div  class="crad1">
-                <img src="img/latest_news_img_1.png" alt="">
-              <div style="background-color: #fff; padding: 10px;">
-                <p style="margin-left: 15px;">Posted October 8,2021</p>
-            <h3 style="margin-left: 15px;">chheap budget hotel rooms </h3>
-          <p style="width: 328px; color: gray; margin-left: 15px;">Lorem ipsum dolor sit 
-            amet consectetur adipisicing elit.Distinctio,velit. Repellat temporibus alias, doloru.</p>
-  <hr>
-  <P style="margin-left: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: rgb(140, 43, 43);">READE MORE</P>
-              </div>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card reveal">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">JK</div>
+          <div class="testimonial-meta">
+            <strong>James K.</strong>
+            <span>Homeowner, LA</span>
+          </div>
         </div>
-            <div class="crad2"><img src="img/latest_news_img_2.png" alt="">
-              <div style="background-color: #fff; padding: 10px;">
-                <p style="margin-left: 15px;">Posted October 8,2021</p>
-            <h3 style="margin-left: 15px;">chheap budget hotel rooms </h3>
-          <p style="width: 328px; color: gray; margin-left: 15px;">Lorem ipsum dolor sit 
-            amet consectetur adipisicing elit.Distinctio,velit. Repellat temporibus alias, doloru.</p>
-  <hr>
-  <P style="margin-left: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: rgb(140, 43, 43);">READE MORE</P>
-              </div>
-            </div>
-            <div class="crad3"><img src="img/latest_news_img_3.png" alt="">
-              <div style="background-color: #fff; padding: 10px;">
-                <p style="margin-left: 15px;">Posted October 8,2021</p>
-            <h3 style="margin-left: 15px;">chheap budget hotel rooms </h3>
-          <p style="width: 328px; color: gray; margin-left: 15px;">Lorem ipsum dolor sit 
-            amet consectetur adipisicing elit.Distinctio,velit. Repellat temporibus alias, doloru.</p>
-  <hr>
-  <P style="margin-left: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: rgb(140, 43, 43);">READE MORE</P>
-              </div>
-            </div>
-            
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+        </div>
+        <p class="testimonial-quote">"Fast delivery, perfect packaging. The sofa looks even better in person. I couldn't be happier with my purchase."</p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card reveal">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">PR</div>
+          <div class="testimonial-meta">
+            <strong>Priya R.</strong>
+            <span>Architect, Chicago</span>
+          </div>
+        </div>
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-solid fa-star filled"></i>
+          <i class="fa-regular fa-star empty"></i>
+        </div>
+        <p class="testimonial-quote">"Furnish.com has the best selection. I've ordered 3 times and never disappointed. The craftsmanship is truly exceptional."</p>
+      </div>
     </div>
 
-    <br /><br />>
-
-    
-    <h1 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Feedback</h1>
-    <p style="color: gray; text-align: center;">Lorem ipsum dolor sit 
-      amet consectetur adipisicing elit.Distinctio,velit. Repellat temporibus alias, doloru.</p>
-<br><br><br>
-      <input  style=" position: absolute;left: 35%;  width: 452px; height: 42px;  border-radius: 11px;outline: none;border: none;background-color: #e3e3e3;
-          " type="text">
-                    <button style="background-color:  #000000cf;position: absolute;left: 58%;  color: #fff; padding: 14px 20px;">SUBSCRIBE</button>
-
-<div style="margin-top: 15%; position: relative;" class="thelast">
-  <div class="last">
-
-    <div style=" width: 27%; letter-spacing: 1.2px;" class="last1">
-      <h2>Furnish.com</h2>
-      <p style="color: gray;">Lorem ipsum molestiae dolor sit amet consectetur <br>
-         praesentium totam commodi iure molestiae veritatis <br> <br>  Amet tenetur 
-        cumque   fugiat mollitia 
-        vel, <br> <br> aliquid praesentium
-         veniam, obcaecati distinctio  molestiae </p>
+    <!-- Latest News -->
+    <div class="section-header">
+      <div class="section-label"><i class="fa-solid fa-newspaper"></i> From the Blog</div>
+      <h1>Latest News</h1>
+      <p>Stay updated with the latest trends in interior design and furniture.</p>
     </div>
-  
-  
-  
-    <div style="width: 10%;" class="last2">
-      <h2>Contact Us</h2>
-  
-      <p style="color: gray; padding: 8px 8px 8px 8px; letter-spacing: 1.1px;">1203 fake street ,Drive <br>  FL 5766 ,LA USA <br> phone +474(7485)2300 <br> Email : imfo@furnish.com </p>
-  
-    </div>
-  
-  
-    <div style="width: 10%;" class="last3">
-      <h2>Recent Post</h2>
-  
-      <p style="color: gray; padding: 8px 8px 8px 8px; letter-spacing: 1.1px;">Rooms decoration <br>  <br> Package <br> <br> During Materials <br> <br> Event Furntiure </p>
-  
-  
-    </div>
-  
-  
-    <div style="width: 10%;" class="last4">
-      <h2>Our Portflio</h2>
-  
-      <p style="color: gray; padding: 8px 8px 8px 8px; letter-spacing: 1.1px;">EFTA Event <br> <br> Country feast <br> <br> Soo Conference <br> <br> LA Event</p>
-  
-  
-    </div>
-  </div>
-  <div style="background-color: rgba(0, 0, 0, 0.722); position: absolute; bottom: 0; width: 100%; color: #fff;" class="floor">
-    <p style="padding: 25px 15px;">@Copyrite 2021 . All Right Resrved . Designed and Developed By Ahmed-Mohmed</p>
-  </div>
-</div>
 
-<br>
-<script src="script.js"></script>
+    <div class="container-crad">
+      <!-- Card 1 -->
+      <div class="crad1 reveal">
+        <div class="news-img-wrap">
+          <img src="img/latest_news_img_1.png" alt="Minimalist Living Room" />
+          <span class="news-tag badge-blue-solid">Design Tips</span>
+        </div>
+        <div class="card-body">
+          <p class="post-date">
+            <i class="fa-regular fa-calendar"></i> March 15, 2024
+          </p>
+          <h3>10 Ways to Style a Minimalist Living Room</h3>
+          <p>Discover the art of less-is-more with our expert guide to creating a serene, clutter-free living space that feels both modern and inviting.</p>
+          <hr />
+          <a href="blog.html" class="read-more">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="crad2 reveal">
+        <div class="news-img-wrap">
+          <img src="img/latest_news_img_2.png" alt="Sustainable Furniture" />
+          <span class="news-tag badge-green-solid">Trends</span>
+        </div>
+        <div class="card-body">
+          <p class="post-date">
+            <i class="fa-regular fa-calendar"></i> April 2, 2024
+          </p>
+          <h3>The Rise of Sustainable Furniture in 2024</h3>
+          <p>Eco-conscious design is no longer a niche — it's the future. Explore how sustainable materials are reshaping the furniture industry this year.</p>
+          <hr />
+          <a href="blog.html" class="read-more">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="crad3 reveal">
+        <div class="news-img-wrap">
+          <img src="img/latest_news_img_3.png" alt="Choose the Perfect Sofa" />
+          <span class="news-tag badge-orange-solid">Guide</span>
+        </div>
+        <div class="card-body">
+          <p class="post-date">
+            <i class="fa-regular fa-calendar"></i> April 28, 2024
+          </p>
+          <h3>How to Choose the Perfect Sofa for Your Space</h3>
+          <p>Size, fabric, style — choosing a sofa can feel overwhelming. Our comprehensive guide breaks it down so you can shop with confidence.</p>
+          <hr />
+          <a href="blog.html" class="read-more">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <div class="newsletter-icon">✉️</div>
+      <h2>Stay in the Loop</h2>
+      <p>Subscribe to get the latest deals, design tips, and new arrivals delivered straight to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address..." />
+        <button type="button">SUBSCRIBE</button>
+      </div>
+      <p class="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="thelast">
+      <div class="last">
+        <div class="last1">
+          <h2>Furnish<span class="logo-dot">.</span></h2>
+          <p>
+            We believe great furniture transforms a house into a home.
+            Our curated collections blend timeless design with modern comfort,
+            crafted to last a lifetime and elevate every space.
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter / X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Pinterest">
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="last2">
+          <h2>Contact Us</h2>
+          <p>
+            <span><i class="fa-solid fa-location-dot"></i> 1203 Fake Street Drive</span>
+            <span><i class="fa-solid fa-city"></i> FL 5766, LA USA</span>
+            <span><i class="fa-solid fa-phone"></i> +474 (7485) 2300</span>
+            <span><i class="fa-solid fa-envelope"></i> info@furnish.com</span>
+          </p>
+        </div>
+
+        <div class="last3">
+          <h2>Recent Posts</h2>
+          <p>
+            <span>Rooms Decoration</span>
+            <span>Package Deals</span>
+            <span>Durable Materials</span>
+            <span>Event Furniture</span>
+          </p>
+        </div>
+
+        <div class="last4">
+          <h2>Our Portfolio</h2>
+          <p>
+            <span>EFTA Event</span>
+            <span>Country Feast</span>
+            <span>Soo Conference</span>
+            <span>LA Event</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="floor">
+        <div class="floor-inner">
+          <p>&copy; 2024 <strong style="color:var(--primary)">Furnish.</strong> — All Rights Reserved.</p>
+          <p class="floor-credit">Designed &amp; Developed by <a href="https://github.com" target="_blank" rel="noopener">Ahmed Mohamed</a></p>
+          <div style="display:flex;gap:12px;align-items:center">
+            <a href="demo.html" style="color:rgba(255,255,255,0.5);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#f48359'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
+            <span style="color:rgba(255,255,255,0.2)">·</span>
+            <a href="demo.html" style="color:rgba(255,255,255,0.5);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#f48359'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+            <span style="color:rgba(255,255,255,0.2)">·</span>
+            <a href="sitemap.xml" style="color:rgba(255,255,255,0.5);font-size:12px;transition:color 0.2s" onmouseover="this.style.color='#f48359'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Sitemap</a>
+          </div>
+        </div>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+          <i class="fa-solid fa-chevron-up"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

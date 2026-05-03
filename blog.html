@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Furnish.</title>
+  <link rel="stylesheet" href="font/fontawesome-free-6.1.1-web/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="side2" id="sidebar">
+    <div class="sidebar-logo">Furnish<span>.</span></div>
+    <ul>
+      <li onclick="location.href='demo.html'">Home</li>
+      <li onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></li>
+      <li onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></li>
+      <li onclick="location.href='blog.html'" class="nav-active">Blog <span class="badge badge-count">5</span></li>
+      <li onclick="location.href='about.html'">About</li>
+      <li onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></li>
+    </ul>
+  </div>
+
+  <nav class="navbar">
+    <div class="list">
+      <a class="nav-logo" href="demo.html">Furnish<span>.</span></a>
+      <div class="category" id="categoryBtn"><p><i class="fa-solid fa-bars"></i>&nbsp; Category</p></div>
+      <div class="list-icon">
+        <ul>
+          <li><p id="home" class="nav-link-item" onclick="location.href='demo.html'">Home</p><i id="st1" class="fa-solid fa-chevron-down"></i><div class="list-home"><ul><li onclick="location.href='shop.html'">Living Room</li><li onclick="location.href='shop.html'">Bedroom</li><li onclick="location.href='shop.html'">Office</li></ul></div></li>
+          <li><p id="featured" class="nav-link-item" onclick="location.href='featured.html'">Featured <span class="badge badge-hot">HOT</span></p><i id="st2" class="fa-solid fa-chevron-down"></i><div class="list-home2"><ul><li onclick="location.href='featured.html'">New Arrivals</li><li onclick="location.href='featured.html'">Best Sellers</li><li onclick="location.href='featured.html'">On Sale</li></ul></div></li>
+          <li><p id="shop" class="nav-link-item" onclick="location.href='shop.html'">Shop <span class="badge badge-new">NEW</span></p><i id="st3" class="fa-solid fa-chevron-down"></i><div class="list-home3"><ul><li onclick="location.href='shop.html'">Sofas</li><li onclick="location.href='shop.html'">Chairs</li><li onclick="location.href='shop.html'">Tables</li></ul></div></li>
+          <li><p id="blog" class="nav-link-item nav-active" onclick="location.href='blog.html'">Blog <span class="badge badge-count">5</span></p><i id="st4" class="fa-solid fa-chevron-down"></i><div class="list-home4"><ul><li onclick="location.href='blog.html'">Design Tips</li><li onclick="location.href='blog.html'">Trends</li><li onclick="location.href='blog.html'">Guides</li></ul></div></li>
+          <li><p id="about" class="nav-link-item" onclick="location.href='about.html'">About</p><i id="st5" class="fa-solid fa-chevron-down"></i><div class="list-home5"><ul><li onclick="location.href='about.html'">Our Story</li><li onclick="location.href='about.html'">Team</li><li onclick="location.href='about.html'">Careers</li></ul></div></li>
+          <li><p id="contact" class="nav-link-item" onclick="location.href='contact.html'">Contact <span class="badge badge-blue">24/7</span></p><i id="st6" class="fa-solid fa-chevron-down"></i><div class="list-home6"><ul><li onclick="location.href='contact.html'">Get in Touch</li><li onclick="location.href='contact.html'">Support</li><li onclick="location.href='contact.html'">Locations</li></ul></div></li>
+        </ul>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><span class="nav-badge" id="wishlistCount">2</span></button>
+        <button class="nav-icon-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="nav-badge" id="cartCount">3</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="trust-icon">🚚</span><span>Free Shipping on orders over $99</span></div>
+      <div class="trust-item"><span class="trust-icon">🔄</span><span>30-Day Returns</span></div>
+      <div class="trust-item"><span class="trust-icon">🛡️</span><span>2-Year Warranty</span></div>
+      <div class="trust-item"><span class="trust-icon">💳</span><span>Secure Payment</span></div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-pill">📝 Latest Articles</div>
+    <h1>Our <span>Blog</span></h1>
+    <p>Design tips, trends, guides, and inspiration for your perfect home.</p>
+    <div class="breadcrumb">
+      <a href="demo.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Blog</span>
+    </div>
+  </div>
+
+  <!-- Filter Tabs -->
+  <div class="filter-bar">
+    <div class="filter-tabs">
+      <button class="filter-tab active">All Posts</button>
+      <button class="filter-tab">Design Tips</button>
+      <button class="filter-tab">Trends</button>
+      <button class="filter-tab">Guides</button>
+      <button class="filter-tab">Inspiration</button>
+    </div>
+  </div>
+
+  <!-- Blog Grid -->
+  <div class="blog-grid">
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <img src="img/latest_news_img_1.png" alt="Minimalist Living Room" />
+        <span class="news-tag badge-blue-solid">Design Tips</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="post-date"><i class="fa-regular fa-calendar"></i> March 15, 2024</span>
+          <span class="post-date"><i class="fa-regular fa-clock"></i> 5 min read</span>
+        </div>
+        <h3>10 Ways to Style a Minimalist Living Room</h3>
+        <p>Discover the art of less-is-more with our expert guide to creating a serene, clutter-free living space that feels both modern and inviting.</p>
+        <div class="blog-author">
+          <div class="blog-author-avatar">AM</div>
+          <div><strong>Ahmed M.</strong><span>Interior Editor</span></div>
+          <span class="read-more" style="margin-left:auto">Read <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <img src="img/latest_news_img_2.png" alt="Sustainable Furniture" />
+        <span class="news-tag badge-green-solid">Trends</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="post-date"><i class="fa-regular fa-calendar"></i> April 2, 2024</span>
+          <span class="post-date"><i class="fa-regular fa-clock"></i> 7 min read</span>
+        </div>
+        <h3>The Rise of Sustainable Furniture in 2024</h3>
+        <p>Eco-conscious design is no longer a niche — it's the future. Explore how sustainable materials are reshaping the furniture industry.</p>
+        <div class="blog-author">
+          <div class="blog-author-avatar">SR</div>
+          <div><strong>Sara R.</strong><span>Sustainability Writer</span></div>
+          <span class="read-more" style="margin-left:auto">Read <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <img src="img/latest_news_img_3.png" alt="Choose the Perfect Sofa" />
+        <span class="news-tag badge-orange-solid">Guide</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="post-date"><i class="fa-regular fa-calendar"></i> April 28, 2024</span>
+          <span class="post-date"><i class="fa-regular fa-clock"></i> 6 min read</span>
+        </div>
+        <h3>How to Choose the Perfect Sofa for Your Space</h3>
+        <p>Size, fabric, style — choosing a sofa can feel overwhelming. Our comprehensive guide breaks it down so you can shop with confidence.</p>
+        <div class="blog-author">
+          <div class="blog-author-avatar">JK</div>
+          <div><strong>James K.</strong><span>Home Stylist</span></div>
+          <span class="read-more" style="margin-left:auto">Read <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <img src="img/latest_news_img_1.png" alt="Biophilic Design" />
+        <span class="news-tag badge-green-solid">Trends</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="post-date"><i class="fa-regular fa-calendar"></i> May 5, 2024</span>
+          <span class="post-date"><i class="fa-regular fa-clock"></i> 4 min read</span>
+        </div>
+        <h3>Biophilic Design: Bringing Nature Indoors</h3>
+        <p>Natural materials, earthy tones, and organic shapes — learn how biophilic design principles can transform your living space.</p>
+        <div class="blog-author">
+          <div class="blog-author-avatar">PR</div>
+          <div><strong>Priya R.</strong><span>Architect</span></div>
+          <span class="read-more" style="margin-left:auto">Read <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <img src="img/latest_news_img_2.png" alt="Small Space Furniture" />
+        <span class="news-tag badge-blue-solid">Design Tips</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="post-date"><i class="fa-regular fa-calendar"></i> May 12, 2024</span>
+          <span class="post-date"><i class="fa-regular fa-clock"></i> 8 min read</span>
+        </div>
+        <h3>Smart Furniture Choices for Small Spaces</h3>
+        <p>Living in a compact apartment? These clever furniture picks and layout tricks will make your space feel twice as large.</p>
+        <div class="blog-author">
+          <div class="blog-author-avatar">LM</div>
+          <div><strong>Lena M.</strong><span>Space Designer</span></div>
+          <span class="read-more" style="margin-left:auto">Read <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <div class="blog-card-img">
+        <img src="img/latest_news_img_3.png" alt="Color Trends 2024" />
+        <span class="news-tag badge-orange-solid">Inspiration</span>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="post-date"><i class="fa-regular fa-calendar"></i> May 20, 2024</span>
+          <span class="post-date"><i class="fa-regular fa-clock"></i> 5 min read</span>
+        </div>
+        <h3>Top Interior Color Trends for 2024</h3>
+        <p>From warm terracottas to deep forest greens — discover the palette trends that are dominating interior design this year.</p>
+        <div class="blog-author">
+          <div class="blog-author-avatar">TC</div>
+          <div><strong>Tom C.</strong><span>Color Consultant</span></div>
+          <span class="read-more" style="margin-left:auto">Read <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button class="page-btn active">1</button>
+    <button class="page-btn">2</button>
+    <button class="page-btn">3</button>
+    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div class="newsletter-icon">✉️</div>
+    <h2>Never Miss a Post</h2>
+    <p>Subscribe to get the latest design tips and furniture guides delivered to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address..." />
+      <button type="button">SUBSCRIBE</button>
+    </div>
+    <p class="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="thelast">
+    <div class="last">
+      <div class="last1">
+        <h2>Furnish<span class="logo-dot">.</span></h2>
+        <p>We believe great furniture transforms a house into a home.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="last2">
+        <h2>Contact Us</h2>
+        <p><span><i class="fa-solid fa-location-dot"></i> 1203 Fake Street Drive</span><span><i class="fa-solid fa-phone"></i> +474 (7485) 2300</span><span><i class="fa-solid fa-envelope"></i> info@furnish.com</span></p>
+      </div>
+      <div class="last3">
+        <h2>Quick Links</h2>
+        <p><span onclick="location.href='demo.html'">Home</span><span onclick="location.href='shop.html'">Shop</span><span onclick="location.href='featured.html'">Featured</span><span onclick="location.href='about.html'">About</span></p>
+      </div>
+      <div class="last4">
+        <h2>Categories</h2>
+        <p><span>Design Tips</span><span>Trends</span><span>Guides</span><span>Inspiration</span></p>
+      </div>
+    </div>
+    <div class="floor">
+      <p>&copy; 2024 Furnish. &mdash; All Rights Reserved.</p>
+      <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+    </div>
+  </div>
+
+  <script src="navbar.js"></script>
+  <script>
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => { document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); });
+    });
+  </script>
+</body>
+</html>

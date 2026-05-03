@@ -1,188 +1,195 @@
-var l1 = document.querySelector(".list-home ul ");
-var l2 = document.querySelector(".list-home2 ul ");
-var l3 = document.querySelector(".list-home3 ul ");
-var l4 = document.querySelector(".list-home4 ul ");
-var l5 = document.querySelector(".list-home5 ul ");
-var l6 = document.querySelector(".list-home6 ul ");
-let mood = "yes";
-let mood2 = "true";
+﻿// ===== SIDEBAR =====
+const sidebar = document.getElementById('sidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+const categoryBtn = document.getElementById('categoryBtn');
 
-var category = document.querySelector(".category i");
+function openSidebar() {
+    sidebar.classList.add('active');
+    sidebarOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-category.onclick = function () {
-    document.getElementsByClassName('side2')[0].classList.toggle('active')
-};
+function closeSidebar() {
+    sidebar.classList.remove('active');
+    sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
 
-document.getElementById("st1").onclick = function () {
-    if (mood2 === "true") {
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
+categoryBtn.addEventListener('click', () => {
+    sidebar.classList.contains('active') ? closeSidebar() : openSidebar();
+});
+
+sidebarOverlay.addEventListener('click', closeSidebar);
+
+// ===== DROPDOWN MENUS =====
+const dropdowns = [
+    { triggerId: 'st1', menuClass: '.list-home ul', arrowId: 'st1' },
+    { triggerId: 'st2', menuClass: '.list-home2 ul', arrowId: 'st2' },
+    { triggerId: 'st3', menuClass: '.list-home3 ul', arrowId: 'st3' },
+    { triggerId: 'st4', menuClass: '.list-home4 ul', arrowId: 'st4' },
+    { triggerId: 'st5', menuClass: '.list-home5 ul', arrowId: 'st5' },
+    { triggerId: 'st6', menuClass: '.list-home6 ul', arrowId: 'st6' },
+];
+
+const allMenus = dropdowns.map(d => document.querySelector(d.menuClass));
+
+function closeAllDropdowns(except = null) {
+    dropdowns.forEach((d, i) => {
+        if (allMenus[i] !== except) {
+            allMenus[i].style.display = 'none';
+            document.getElementById(d.arrowId).style.transform = 'translateY(-50%) rotate(0deg)';
         }
+    });
+}
 
-        document.querySelector(".list-home ul ").style.display = "block";
-        mood2 = "no";
-    } else {
-        mood2 = "true";
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-            document.querySelector(".list-home ul ").style.display = "none";
-        }
-    }
-};
+dropdowns.forEach((d, i) => {
+    const trigger = document.getElementById(d.triggerId);
+    const menu = allMenus[i];
+    const arrow = document.getElementById(d.arrowId);
+    const label = document.getElementById(d.triggerId.replace('st', ''));
 
-document.getElementById("st2").onclick = function () {
-    if (mood2 === "true") {
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-        }
-        document.querySelector(".list-home2 ul ").style.display = "block";
-        mood2 = "no";
-    } else {
-        mood2 = "true";
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-            document.querySelector(".list-home2 ul ").style.display = "none";
-        }
-    }
-};
-
-document.getElementById("st3").onclick = function () {
-    if (mood2 === "true") {
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-        }
-        document.querySelector(".list-home3 ul ").style.display = "block";
-        mood2 = "no";
-    } else {
-        mood2 = "true";
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-            document.querySelector(".list-home3 ul ").style.display = "none";
+    function toggle() {
+        const isOpen = menu.style.display === 'block';
+        closeAllDropdowns();
+        if (!isOpen) {
+            menu.style.display = 'block';
+            arrow.style.transform = 'translateY(-50%) rotate(180deg)';
         }
     }
-};
 
-document.getElementById("st4").onclick = function () {
-    if (mood2 === "true") {
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
+    trigger.addEventListener('click', toggle);
+    if (label) label.addEventListener('click', toggle);
+});
+
+document.addEventListener('click', (e) => {
+    const insideNav = e.target.closest('.list-icon');
+    if (!insideNav) closeAllDropdowns();
+});
+
+// ===== CATEGORY IMAGE HOVER LABELS =====
+// Labels are now CSS-only overlays (.cat-overlay) — no JS needed
+
+// ===== SCROLL REVEAL ANIMATION =====
+const revealElements = document.querySelectorAll(
+    '.npro, .chair1, .crad1, .crad2, .crad3, .category0, .testimonial-card'
+);
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
         }
-        document.querySelector(".list-home4 ul ").style.display = "block";
-        mood2 = "no";
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// ===== BACK TO TOP BUTTON =====
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
     } else {
-        mood2 = "true";
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-            document.querySelector(".list-home4 ul ").style.display = "none";
-        }
+        backToTopBtn.classList.remove('visible');
     }
-};
+});
 
-document.getElementById("st5").onclick = function () {
-    if (mood2 === "true") {
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-        }
-        document.querySelector(".list-home5 ul ").style.display = "block";
-        mood2 = "no";
-    } else {
-        mood2 = "true";
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-            document.querySelector(".list-home5 ul ").style.display = "none";
-        }
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== COUNTDOWN TIMER =====
+// Set end date to 2 days from now
+const countdownEndDate = new Date();
+countdownEndDate.setDate(countdownEndDate.getDate() + 2);
+
+function updateCountdowns() {
+    const now = new Date();
+    const diff = countdownEndDate - now;
+
+    if (diff <= 0) {
+        document.querySelectorAll('.countdown-timer').forEach(el => {
+            el.textContent = '00:00:00';
+        });
+        return;
     }
-};
 
-document.getElementById("st6").onclick = function () {
-    if (mood2 === "true") {
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
+    const totalSeconds = Math.floor(diff / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const formatted =
+        String(hours).padStart(2, '0') + ':' +
+        String(minutes).padStart(2, '0') + ':' +
+        String(seconds).padStart(2, '0');
+
+    document.querySelectorAll('.countdown-timer').forEach(el => {
+        el.textContent = formatted;
+    });
+}
+
+updateCountdowns();
+setInterval(updateCountdowns, 1000);
+
+// ===== CART BADGE =====
+const cartCountEl = document.getElementById('cartCount');
+let cartCount = parseInt(cartCountEl.textContent, 10) || 0;
+
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        cartCount++;
+        cartCountEl.textContent = cartCount;
+
+        // Animate the badge
+        cartCountEl.style.transform = 'scale(1.5)';
+        setTimeout(() => { cartCountEl.style.transform = 'scale(1)'; }, 250);
+
+        // Brief button feedback
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+        btn.style.background = '#22c55e';
+        setTimeout(() => {
+            btn.innerHTML = original;
+            btn.style.background = '';
+        }, 1200);
+    });
+});
+
+// ===== WISHLIST TOGGLE =====
+const wishlistCountEl = document.getElementById('wishlistCount');
+let wishlistCount = parseInt(wishlistCountEl.textContent, 10) || 0;
+
+document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = btn.classList.toggle('active');
+
+        // Swap icon between regular and solid heart
+        const icon = btn.querySelector('i');
+        if (isActive) {
+            icon.classList.remove('fa-regular');
+            icon.classList.add('fa-solid');
+            wishlistCount++;
+        } else {
+            icon.classList.remove('fa-solid');
+            icon.classList.add('fa-regular');
+            wishlistCount = Math.max(0, wishlistCount - 1);
         }
-        document.querySelector(".list-home6 ul ").style.display = "block";
-        mood2 = "no";
-    } else {
-        mood2 = "true";
-        let arr = [l1, l2, l3, l4, l5, l6];
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].style.display = "none";
-            document.querySelector(".list-home6 ul ").style.display = "none";
-        }
-    }
-};
 
-var img1 = document.querySelectorAll(".category0 ")[0];
-var img2 = document.querySelectorAll(".category0 ")[1];
-var img3 = document.querySelectorAll(".category0 ")[2];
-var img4 = document.querySelectorAll(".category0 ")[3];
-var img5 = document.querySelectorAll(".category0 ")[4];
-var img6 = document.querySelectorAll(".category0 ")[5];
+        wishlistCountEl.textContent = wishlistCount;
 
-var safa1 = document.querySelectorAll(".category0 p")[0];
-var safa2 = document.querySelectorAll(".category0 p")[1];
-var safa3 = document.querySelectorAll(".category0 p")[2];
-var safa4 = document.querySelectorAll(".category0 p")[3];
-var safa5 = document.querySelectorAll(".category0 p")[4];
-var safa6 = document.querySelectorAll(".category0 p")[5];
-
-img1.onmouseover = function () {
-    safa1.style.display = "block";
-};
-img1.onmouseleave = function () {
-    safa1.style.display = "none";
-};
-
-//2
-
-img2.onmouseover = function () {
-    safa2.style.display = "block";
-};
-img2.onmouseleave = function () {
-    safa2.style.display = "none";
-};
-
-//3
-
-img3.onmouseover = function () {
-    safa3.style.display = "block";
-};
-img3.onmouseleave = function () {
-    safa3.style.display = "none";
-};
-
-//4
-
-img4.onmouseover = function () {
-    safa4.style.display = "block";
-};
-img4.onmouseleave = function () {
-    safa4.style.display = "none";
-};
-
-//5
-img5.onmouseover = function () {
-    safa5.style.display = "block";
-};
-img5.onmouseleave = function () {
-    safa5.style.display = "none";
-};
-
-//6
-
-img6.onmouseover = function () {
-    safa6.style.display = "block";
-};
-img6.onmouseleave = function () {
-    safa6.style.display = "none";
-};
+        // Animate the badge
+        wishlistCountEl.style.transform = 'scale(1.5)';
+        setTimeout(() => { wishlistCountEl.style.transform = 'scale(1)'; }, 250);
+    });
+});

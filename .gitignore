@@ -1,0 +1,34 @@
+# ── Large / unnecessary files ──────────────────────────────────────────────
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.rar
+*.7z
+
+# ── OS junk ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+
+# ── Node (if ever added) ───────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ── Vercel local dev ───────────────────────────────────────────────────────
+.vercel/
+
+# ── Misc ───────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+_navbar.html
